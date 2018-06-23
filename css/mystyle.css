@@ -1,0 +1,31 @@
+h2,h4
+{
+	color:green;
+	letter-spacing: 2px;
+    word-spacing: 10px;
+}
+
+h2
+{
+	text-align: center;
+    text-shadow: 5px 5px 5px #FF0000;
+}
+table
+{
+border-collapse:collapse;
+}
+table,th, td
+{
+border: 1px solid green;
+}
+
+th
+{
+	background-color:green;
+	color: black
+}
+td
+{
+	text-align: center;
+	padding: 15px;
+}

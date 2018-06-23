@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="jquery,ui,easy,easyui,web">
+	<meta name="description" content="easyui help you build your web page easily!">
+	<title>User CRUD of My Bookstore</title>
+
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/demo/demo.css">
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+	<script type="text/javascript" src="http://www.jeasyui.net/Public/js/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="http://www.w3cschool.cc/try/jeasyui/jquery.edatagrid.js"></script>
+	
+	
+	<script type="text/javascript">
+		function doSearch(){
+	        $('#dg').datagrid('load',{
+	            firstname: $('#firstname').val(),
+	            lastname: $('#lastname').val()
+	        });
+    	}
+    	$(function(){
+			$('#dg').edatagrid({
+				url: 'get_users.php',
+				saveUrl: 'save_user.php',
+				updateUrl: 'update_user.php',
+				destroyUrl: 'remove_user.php'
+			});
+		});
+
+
+	</script>
+	
+</head>
+<body>
+	<h2>Basic CRUD</h2>
+	<h4>Search and Double click to edit and Click the header to sort</h4>
+	<table  id="dg" 
+			title="My Users" 
+			class="easyui-datagrid" 
+			style="width:700px;height:300px" 
+			url="get_users.php"
+	        toolbar="#toolbar" 
+	        title="My Users"
+
+			rownumbers="true" 
+			pagination="true" 
+			fitColumns="true" 
+			singleSelect="true"
+	        >
+	    <thead>
+	        <tr>
+	            <th field="firstname" width="50" sortable="true" editor="{type:'validatebox',options:{required:true}}">First Name</th>
+	            <th field="lastname" width="50" sortable="true" editor="{type:'validatebox',options:{required:true}}">Last Name</th>
+	            <th field="phone" width="50" sortable="true" editor="{type:'text'}">Phone</th>
+	            <th field="email" width="50" sortable="true"  editor="{type:'validatebox',options:{validType:'email'}}">Email</th>
+	        </tr>
+	    </thead>
+	</table>
+	<div id="toolbar">
+		<div>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">New</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Destroy</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancel</a>
+		<!--
+		<a href="#"  id="exportjson" class="easyui-linkbutton" style="{background-color: green; padding: 20px;}">Export Json</a>
+        <a href="#"  id="exportcsv" class="easyui-linkbutton" style="{background-color: green; padding: 20px;}">Export CSV</a>
+        -->
+        </div>
+
+        <div><br/></div>
+        <div>
+	    <span>First Name:</span>
+        <input id="firstname" style="line-height:26px;border:1px solid #ccc">
+        <span>Last Name:</span>
+        <input id="lastname" style="line-height:26px;border:1px solid #ccc">
+        <a href="#" class="easyui-linkbutton" plain="true"  iconCls="icon-search" onclick="doSearch()">Search</a>
+        </div>
+	</div>
+	
+</body>
+</html>
