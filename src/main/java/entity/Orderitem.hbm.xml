@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-4-22 12:26:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class name="entity.Orderitem" table="ORDERITEMS">
+  <id name="itemid" type="int">
+   <column name="ITEMID"/>
+   <generator class="native"/>
+  </id>
+  <property  name="bookid" type="int">
+   <column name="BOOKID"/>
+  </property>
+  <property name="orderid" type="int">
+   <column name="ORDERID"/>
+  </property>
+  <property name="booknum" type="int">
+   <column name="BOOKNUM"/>
+  </property>
+ </class>
+</hibernate-mapping>

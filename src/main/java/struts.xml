@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<constant name="struts.devMode" value="true" />
+   <package name="login" extends="struts-default">
+     
+      <action name="userLoginAction" 
+            class="action.UserLoginAction" 
+            method="execute">
+            <result name="success">/user/homepage.jsp</result>
+            <result name="error">/user/login.jsp</result>
+      </action>
+      
+      <action name="userRegisterAction" 
+            class="action.UserRegisterAction" 
+            method="execute">
+            <result name="success">/user/login.jsp</result>
+            <result name="error">/user/register.jsp</result>
+      </action>
+      
+      <action name="cartitemAddAction" 
+            class="action.CartitemAddAction" 
+            method="execute">
+            <result name="success">/user/cartitemAdd.jsp</result>
+            <result name="error">/user/cartitemAdd.jsp</result>
+      </action>
+      
+      <action name="profileAction" 
+            class="action.profileAction" 
+            method="execute">
+            <result name="success">/user/profile.jsp</result>
+            <result name="error">/user/profile.jsp</result>
+      </action>
+      <!-- admin part  the servlet become invalid after i use the struts-->
+      
+      
+   </package>
+</struts>
